@@ -113,16 +113,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe2ef8c13dca0448ab548bec5b26fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timetodestroy: 5
-  speed: 5
+  timetodestroy: 10
+  speed: 2
   minSpeed: 20
   maxSpeed: 50
-  damage: 0
+  damage: 0.5
   accel: 15
   astern: 5
-  turnningSpeed: 180
+  turnningSpeed: 100
   minDegree: 30
-  beforeAccel: 1
+  beforeAccel: 0.5
   target: {fileID: 0}
   explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
   showangle: 0
