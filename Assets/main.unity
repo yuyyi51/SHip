@@ -586,6 +586,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 61938850901979270, guid: 0c4667b3df782d04f8249ed61d626da0,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c4667b3df782d04f8249ed61d626da0, type: 2}
   m_IsPrefabParent: 0
@@ -1176,6 +1181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_enemy: 0
+  tag_kind: 0
 --- !u!1 &1449869041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,11 +1762,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blast: {fileID: 1523816470357916, guid: 630619ed445db674faed6d556d7f6792, type: 2}
   muzzle: {fileID: 353726266}
-  cd1: 0.05
+  cd1: 0.1
   time1: 0
   missile: {fileID: 1313373461065832, guid: 30afec974f899dc48a0afd65e381fb48, type: 2}
   launcher: {fileID: 353726266}
-  cd2: 1
+  cd2: 2
   time2: 0
 --- !u!1 &1898867167
 GameObject:
