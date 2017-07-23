@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_enemy: 0
+  tag_kind: 2
 --- !u!114 &114872099310457206
 MonoBehaviour:
   m_ObjectHideFlags: 1

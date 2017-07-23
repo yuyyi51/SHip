@@ -52,7 +52,7 @@ public class Shell : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-        if (other.GetComponent<is_en_tag>().is_enemy != gameObject.GetComponent<is_en_tag>().is_enemy)
+		if (other.GetComponent<is_en_tag>().tag_kind == is_en_tag.kind.ship && other.GetComponent<is_en_tag>().is_enemy != gameObject.GetComponent<is_en_tag>().is_enemy)
         {
 
             Destroy(gameObject);
