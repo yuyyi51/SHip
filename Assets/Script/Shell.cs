@@ -39,7 +39,6 @@ public class Shell : MonoBehaviour {
         v1.Normalize();
         v1 *= speed;
 
-
         Vector3 shiptoward;
         float shipspeed;
 
@@ -54,34 +53,6 @@ public class Shell : MonoBehaviour {
         speed = direction.magnitude;
         direction = transform.InverseTransformVector(direction);
         direction.Normalize();
-
-        /*timetodestroy = range / speed;
-        direction = transform.up;
-        direction.Normalize();
-        direction *= speed;
-        //Debug.Log(direction);
-
-        direction += shiptoward;
-        //Debug.Log(direction);
-
-        float dispersion = Random.Range(0f, 1f);
-        float angle = Random.Range(0f, 360f);
-        dispersion *= maxDispersion;
-        Vector3 v2 = new Vector3();
-        v2.x = Mathf.Cos(angle);
-        v2.y = Mathf.Sin(angle);
-        v2.z = 0;
-        v2 *= dispersion;
-        v2 /= timetodestroy;
-
-        direction += v1;
-
-        speed = direction.magnitude;
-        direction = transform.InverseTransformVector(direction);
-        
-        //Debug.Log(speed);
-        direction.Normalize();
-        //Debug.Log(direction);*/
 	}
 	
 	// Update is called once per frame
