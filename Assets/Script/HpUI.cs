@@ -13,7 +13,7 @@ public class HpUI : MonoBehaviour {
 	void Start () {
 		gameObject.GetComponent<Slider>().maxValue = gameObject.transform.parent.transform.parent.GetComponent<Ship>().health;
 		gameObject.GetComponent<Slider>().value = gameObject.transform.parent.transform.parent.GetComponent<Ship>().health;
-		Debug.Log (gameObject.GetComponent<Slider> ().value);
+		//Debug.Log (gameObject.GetComponent<Slider> ().value);
 	}
 	
 	// Update is called once per frame
@@ -22,7 +22,7 @@ public class HpUI : MonoBehaviour {
 
 
 
-		Debug.Log (gameObject.GetComponent<Slider> ().value);
+		//Debug.Log (gameObject.GetComponent<Slider> ().value);
 		gameObject.GetComponent<Slider>().value = gameObject.transform.parent.transform.parent.GetComponent<Ship>().health;
 	}
 }
