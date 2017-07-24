@@ -17,7 +17,7 @@ public class ShipMove : MonoBehaviour
     public float maxSpeed;        //最大速度
     public float maxAstSpeed;     //最大后退速度
     public float turningSpeed;     //转向速度
-    public int framesBeforeLunch = 5;
+    public int framesBeforeLaunch = 5;
     [SerializeField]
     private int framesHeld;
     private bool stopped;
@@ -87,7 +87,7 @@ public class ShipMove : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.W))
         {
-            if(stopped == true && framesHeld <= framesBeforeLunch)
+            if(stopped == true && framesHeld <= framesBeforeLaunch)
             {
                 framesHeld++;
             }
@@ -125,7 +125,7 @@ public class ShipMove : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S))
         {
-            if (stopped == true && framesHeld <= framesBeforeLunch)
+            if (stopped == true && framesHeld <= framesBeforeLaunch)
             {
                 framesHeld++;
             }
