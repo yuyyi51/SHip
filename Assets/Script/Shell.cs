@@ -19,23 +19,23 @@ public class Shell : MonoBehaviour {
         shiptoward = ShipMove.instance.transform.up;
 		shiptoward.Normalize();
         shipspeed = ShipMove.instance.Speed;
-        Debug.Log(shipspeed);
+        //Debug.Log(shipspeed);
         shiptoward *= shipspeed;
-        Debug.Log(shiptoward);
+        //Debug.Log(shiptoward);
 
         direction = transform.up;
         direction.Normalize();
         direction *= speed;
-        Debug.Log(direction);
+        //Debug.Log(direction);
 
         direction += shiptoward;
-        Debug.Log(direction);
+        //Debug.Log(direction);
         speed = direction.magnitude;
         direction = transform.InverseTransformVector(direction);
         
-        Debug.Log(speed);
+        //Debug.Log(speed);
         direction.Normalize();
-        Debug.Log(direction);
+        //Debug.Log(direction);
 	}
 	
 	// Update is called once per frame
