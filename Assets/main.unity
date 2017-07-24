@@ -512,6 +512,11 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 0.85
       objectReference: {fileID: 0}
+    - target: {fileID: 114225146590188094, guid: 0c4667b3df782d04f8249ed61d626da0,
+        type: 2}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c4667b3df782d04f8249ed61d626da0, type: 2}
   m_IsPrefabParent: 0
@@ -824,10 +829,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 664296773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85167204bcef8674bb0af5954a97ae81, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c53400e897b1904a8b538991b2b1bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CD1UI: {fileID: 664296776}
+  CDUI: {fileID: 664296776}
+  number: 0
 --- !u!114 &664296776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,7 +1384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
-  health: 10
+  health: 100
 --- !u!61 &1406325428
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1997,12 +2003,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blast: {fileID: 1523816470357916, guid: 630619ed445db674faed6d556d7f6792, type: 2}
   muzzle: {fileID: 353726266}
-  cd1: 0.1
-  time1: 0
+  cd1: 0.5
   missile: {fileID: 1313373461065832, guid: 30afec974f899dc48a0afd65e381fb48, type: 2}
   launcher: {fileID: 353726266}
   cd2: 2
-  time2: 0
 --- !u!1 &1898867167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,10 +2120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1911392668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a4a56e94d05b514b965060be49c6fd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c53400e897b1904a8b538991b2b1bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CD2UI: {fileID: 1911392671}
+  CDUI: {fileID: 1911392671}
+  number: 1
 --- !u!114 &1911392671
 MonoBehaviour:
   m_ObjectHideFlags: 0
