@@ -77,6 +77,9 @@ public class Missile : MonoBehaviour
 
         if (timetodestroy < 0)
         {
+            explode.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+
+            Instantiate(explode, gameObject.transform.position + Vector3.back, gameObject.transform.rotation);
             Destroy(gameObject);
             number--;
         }
