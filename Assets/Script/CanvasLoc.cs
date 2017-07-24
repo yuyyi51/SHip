@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class CanvasLoc : MonoBehaviour {
 
-	private float turningSpeed;
+	//private float turningSpeed;
 
-	private float turningSpeedNow;
+	//private float turningSpeedNow;
 
 
 	// Use this for initialization
-	void Start () {
-		turningSpeed = GetComponentInParent<ShipMove> ().turningSpeed;
+	void Start ()
+    {
+		//turningSpeed = GetComponentInParent<ShipMove> ().turningSpeed;
 	}
 
 
-	void TurnLeft()
+	/*void TurnLeft()
 	{
 		if(turningSpeedNow < turningSpeed)
 			turningSpeedNow += turningSpeed;
@@ -56,7 +57,7 @@ public class CanvasLoc : MonoBehaviour {
 		{
 			turningSpeedNow = 0;
 		}
-	}
+	}*/
 
 
 
@@ -76,12 +77,16 @@ public class CanvasLoc : MonoBehaviour {
 		gameObject.transform.localRotation = re;
 		*/
 
-		Control();
+		//Control();
+        Vector3 v1 = transform.TransformDirection(Vector3.up);
+        Vector3 v2 = Vector3.up;
+        float angle = Vector3.Angle(v1, v2);
+        float d = (Vector3.Dot(Vector3.forward, Vector3.Cross(v1, v2)) < 0 ? -1 : 1);
+        transform.Rotate(0, 0, d * angle);
+        //transform.Rotate(0, 0, Time.deltaTime * turningSpeedNow);
 
-		transform.Rotate(0, 0, Time.deltaTime * turningSpeedNow);
-
-		//Debug.Log (gameObject.transform.localRotation );
+        //Debug.Log (gameObject.transform.localRotation );
 
 
-	}
+    }
 }
