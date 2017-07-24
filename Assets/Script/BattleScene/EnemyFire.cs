@@ -25,7 +25,8 @@ public class EnemyFire : MonoBehaviour {
 
 			blast.GetComponent<is_en_tag> ().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
 
-			Instantiate (blast, muzzle.transform.position, muzzle.transform.rotation);
+            GameObject bullet = Instantiate(blast, muzzle.transform.position, muzzle.transform.rotation);
+            bullet.GetComponent<Shell>().range = 10;
 			reload = 0;
 		}
 
