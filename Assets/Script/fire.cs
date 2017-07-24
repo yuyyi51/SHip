@@ -33,6 +33,7 @@ public class fire : MonoBehaviour
             cd[0].ColdDown(Time.deltaTime);
         if (!cd[1].ColdDownFinished())
             cd[1].ColdDown(Time.deltaTime);
+		
         if (Input.GetKey(KeyCode.Mouse0) && cd[0].ColdDownFinished())
         {
             blast.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
