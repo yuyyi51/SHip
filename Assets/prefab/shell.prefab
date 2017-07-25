@@ -105,7 +105,11 @@ MonoBehaviour:
   minRange: 3
   maxRange: 15
   range: 0
+<<<<<<< HEAD
   maxDispersion: 100
+=======
+  maxDispersion: 2
+>>>>>>> refs/remotes/origin/master
   explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
 --- !u!114 &114409757527287212
 MonoBehaviour:

@@ -34,8 +34,6 @@ public class Shell : MonoBehaviour {
         v2 *= dispersion;
         v1 += v2;
         timetodestroy = v1.magnitude / speed;
-        Debug.Log(timetodestroy);
-        Debug.Log(range);
         v1.Normalize();
         v1 *= speed;
 
