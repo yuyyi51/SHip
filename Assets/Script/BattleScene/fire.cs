@@ -12,6 +12,8 @@ public class fire : MonoBehaviour
 	public GameObject[] muzz;
 
 
+
+
     public float cd1 = 0.1f;
     //public float time1;
     public CDTime[] cd;
