@@ -44,6 +44,8 @@ public class Ship : MonoBehaviour
 
 				Instantiate (explode, gameObject.transform.position, gameObject.transform.rotation);
 
+                BattleController.instance.DeleteFromObjects(gameObject);
+
 				Destroy (gameObject);
 
 

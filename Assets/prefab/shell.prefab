@@ -100,12 +100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d632dc544b82e4fafdfec152c5eeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 15
   damage: 1
   minRange: 3
   maxRange: 15
   range: 0
-  maxDispersion: 0
+  maxDispersion: 2
   explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
 --- !u!114 &114409757527287212
 MonoBehaviour:

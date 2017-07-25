@@ -18,6 +18,7 @@ public class fire : MonoBehaviour
 
     public GameObject missile;
     public GameObject launcher;
+    public float radii = 3f;
     public float cd2 = 0.2f;
     //public float time2;
 
@@ -59,7 +60,12 @@ public class fire : MonoBehaviour
         if(Input.GetKey(KeyCode.Mouse1) && cd[1].ColdDownFinished())
         {
             missile.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
-            Instantiate(missile, launcher.transform.position, launcher.transform.rotation);
+            GameObject m = Instantiate(missile, launcher.transform.position, launcher.transform.rotation);
+            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouse.z = 0;
+            GameObject target = BattleController.instance.FindClosestEnemy(mouse, radii, GetComponentInParent<is_en_tag>().is_enemy);
+            Debug.Log(target);
+            m.GetComponent<Missile>().target = target;
             cd[1].StartColdDown();
         }
 

@@ -24,7 +24,7 @@ public class Missile : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        target = GameObject.Find("testTarget");
+        //target = GameObject.Find("testTarget");
         //speed = minSpeed;
         speed += ShipMove.instance.Speed;
         time = 0f;
