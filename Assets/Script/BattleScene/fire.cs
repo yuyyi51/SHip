@@ -37,13 +37,17 @@ public class fire : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && cd[0].ColdDownFinished())
         {
             blast.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
-            GameObject bullet = Instantiate (blast, muzzle.transform.position , muzzle.transform.rotation);
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 v1 = mouse - transform.position;
             Vector3 v2 = muzzle.transform.position - transform.position;
             Vector3 tar = v1 - v2;
             tar.z = 0;
             float range = tar.magnitude;
+            GameObject bullet = Instantiate (blast, muzzle.transform.position , muzzle.transform.rotation);
+            bullet.GetComponent<Shell>().range = range;
+            bullet = Instantiate(blast, muzzle.transform.position, muzzle.transform.rotation);
+            bullet.GetComponent<Shell>().range = range;
+            bullet = Instantiate(blast, muzzle.transform.position, muzzle.transform.rotation);
             bullet.GetComponent<Shell>().range = range;
             cd[0].StartColdDown();
 		}
