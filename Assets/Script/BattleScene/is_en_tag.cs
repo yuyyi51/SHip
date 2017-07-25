@@ -14,6 +14,7 @@ public class is_en_tag : MonoBehaviour {
 		ship,
 		shell,
 		missile,
+		plane,
 	}
 
 	public kind tag_kind;

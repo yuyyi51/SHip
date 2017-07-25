@@ -13,17 +13,17 @@ public class EnemyGun : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<CircleCollider2D> ().radius = Range;
+		//gameObject.GetComponent<CircleCollider2D> ().radius = Range;
 	}
-
+	/*
 	void getTarget(){
 		Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position, Range);
 		foreach (Collider hits in colliders)  //遍历碰撞器数组
 		{
-			target = hits;
+			//target = hits;
 
 		}
-	}
+	}*/
 
 	// Update is called once per frame
 	void Update () {

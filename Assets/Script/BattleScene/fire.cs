@@ -8,7 +8,10 @@ public class fire : MonoBehaviour
     public static fire instance;
 
 	public GameObject blast;
-	public GameObject muzzle;
+
+	public GameObject[] muzz;
+
+
     public float cd1 = 0.1f;
     //public float time1;
     public CDTime[] cd;
@@ -33,24 +36,25 @@ public class fire : MonoBehaviour
             cd[0].ColdDown(Time.deltaTime);
         if (!cd[1].ColdDownFinished())
             cd[1].ColdDown(Time.deltaTime);
+
+
+
+			if (Input.GetKey (KeyCode.Mouse0) && cd [0].ColdDownFinished ()) {
+				blast.GetComponent<is_en_tag> ().is_enemy = GetComponentInParent<is_en_tag> ().is_enemy;
+				Vector3 mouse = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+				Vector3 v1 = mouse - transform.position;
+				foreach (GameObject muzzle in muzz) {
+					Vector3 v2 = muzzle.transform.position - transform.position;
+					Vector3 tar = v1 - v2;
+					tar.z = 0;
+					float range = tar.magnitude;
+				
+					GameObject bullet = Instantiate (blast, muzzle.transform.position, muzzle.transform.rotation);
+					bullet.GetComponent<Shell> ().range = range;
+				}
+				cd [0].StartColdDown ();
+			}
 		
-        if (Input.GetKey(KeyCode.Mouse0) && cd[0].ColdDownFinished())
-        {
-            blast.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
-            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 v1 = mouse - transform.position;
-            Vector3 v2 = muzzle.transform.position - transform.position;
-            Vector3 tar = v1 - v2;
-            tar.z = 0;
-            float range = tar.magnitude;
-            GameObject bullet = Instantiate (blast, muzzle.transform.position , muzzle.transform.rotation);
-            bullet.GetComponent<Shell>().range = range;
-            bullet = Instantiate(blast, muzzle.transform.position, muzzle.transform.rotation);
-            bullet.GetComponent<Shell>().range = range;
-            bullet = Instantiate(blast, muzzle.transform.position, muzzle.transform.rotation);
-            bullet.GetComponent<Shell>().range = range;
-            cd[0].StartColdDown();
-		}
 
         if(Input.GetKey(KeyCode.Mouse1) && cd[1].ColdDownFinished())
         {
