@@ -77,6 +77,8 @@ public class Shell : MonoBehaviour {
 
             Instantiate(explode, gameObject.transform.position + Vector3.back, gameObject.transform.rotation);
 
+
+
             Destroy(gameObject);
 
         }

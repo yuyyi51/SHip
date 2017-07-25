@@ -14,6 +14,7 @@ public class EnemyGun : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//gameObject.GetComponent<CircleCollider2D> ().radius = Range;
+
 	}
 	/*
 	void getTarget(){
@@ -27,6 +28,10 @@ public class EnemyGun : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		if (target == null)
+			target = BattleController.instance.FindClosestEnemy (gameObject.transform.position, Range, !GetComponentInParent<is_en_tag> ().is_enemy);
+
 		Vector3 forwardDIr = target.transform.position - transform.position;
 
 		/*

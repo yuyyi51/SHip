@@ -105,11 +105,7 @@ MonoBehaviour:
   minRange: 3
   maxRange: 15
   range: 0
-<<<<<<< HEAD
-  maxDispersion: 100
-=======
   maxDispersion: 2
->>>>>>> refs/remotes/origin/master
   explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
 --- !u!114 &114409757527287212
 MonoBehaviour:
@@ -122,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c3e0d04fa81e041b657c6f57c9071f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_enemy: 0
+  is_enemy: 1
   tag_kind: 1
 --- !u!212 &212771544608008394
 SpriteRenderer:
