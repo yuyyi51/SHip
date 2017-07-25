@@ -66,9 +66,9 @@ public class Shell : MonoBehaviour
 
         if (timetodestroy < 0)
         {
-            explode.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+            //explode.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
 
-            Instantiate(explode, gameObject.transform.position + Vector3.back, gameObject.transform.rotation);
+            //Instantiate(explode, gameObject.transform.position + Vector3.back, gameObject.transform.rotation);
 
             Destroy(gameObject);
         }
@@ -79,9 +79,9 @@ public class Shell : MonoBehaviour
     {
         if (other.GetComponent<is_en_tag>().tag_kind == is_en_tag.kind.ship && other.GetComponent<is_en_tag>().is_enemy != gameObject.GetComponent<is_en_tag>().is_enemy)
         {
-            explode.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+            //explode.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
 
-            Instantiate(explode, gameObject.transform.position + Vector3.back, gameObject.transform.rotation);
+            //Instantiate(explode, gameObject.transform.position + Vector3.back, gameObject.transform.rotation);
 
 
 
