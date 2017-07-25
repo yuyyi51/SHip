@@ -6,6 +6,7 @@ public class BattleController : MonoBehaviour
 {
     public static BattleController instance;
     private List<GameObject> objects;
+    public GameObject enemy;
     public void DeleteFromObjects(GameObject obj)
     {
         objects.Remove(obj);
@@ -63,6 +64,13 @@ public class BattleController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
+		if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Vector3 v = new Vector3();
+            v.x = Random.Range(-10, 10);
+            v.y = Random.Range(-10, 10);
+            v.z = 0;
+            Instantiate(enemy, v, new Quaternion());
+        }
 	}
 }
