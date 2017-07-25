@@ -6,7 +6,7 @@ public class CDTime
     public float cd;
     private float time;
 
-    public CDTime( float c )
+    public CDTime(float c)
     {
         cd = c;
         time = 0;
@@ -17,7 +17,7 @@ public class CDTime
         time = cd;
     }
 
-    public void ColdDown( float deltaTime )
+    public void ColdDown(float deltaTime)
     {
         time -= deltaTime;
     }

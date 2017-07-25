@@ -2,58 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour 
+public class Ship : MonoBehaviour
 {
 
-	public GameObject explode;
+    public GameObject explode;
 
-	public float health;
-
-
-
-	// Use this for initialization
-	void Start () {
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
-
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		//Debug.Log ("triggered");
-
-		if (other.GetComponent<is_en_tag>().is_enemy != gameObject.GetComponent<is_en_tag>().is_enemy) {
+    public float health;
 
 
-			float damage = 0;
 
-			if (other.GetComponent<Missile> () != null)
-				damage = other.GetComponent<Missile> ().damage;
-			if (other.GetComponent<Shell> () != null)
-				damage = other.GetComponent<Shell> ().damage;
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Debug.Log ("triggered");
+
+        if (other.GetComponent<is_en_tag>().is_enemy != gameObject.GetComponent<is_en_tag>().is_enemy)
+        {
 
 
-			health -= damage;
+            float damage = 0;
 
-			if (health <= 0) {
+            if (other.GetComponent<Missile>() != null)
+                damage = other.GetComponent<Missile>().damage;
+            if (other.GetComponent<Shell>() != null)
+                damage = other.GetComponent<Shell>().damage;
 
-				explode.transform.localScale = new Vector3 (0.1f, 0.1f, 0.1f); 
 
-				Instantiate (explode, gameObject.transform.position, gameObject.transform.rotation);
+            health -= damage;
+
+            if (health <= 0)
+            {
+
+                explode.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+
+                Instantiate(explode, gameObject.transform.position, gameObject.transform.rotation);
 
                 BattleController.instance.DeleteFromObjects(gameObject);
 
-				Destroy (gameObject);
+                Destroy(gameObject);
 
 
-			}
+            }
 
 
-		}
+        }
 
 
-	}
+    }
 }

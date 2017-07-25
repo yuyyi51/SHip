@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ShipMove : MonoBehaviour
 {
-	//单例类
+    //单例类
 
-	public static ShipMove instance;
+    public static ShipMove instance;
 
     [SerializeField]
     private float speed;
@@ -22,9 +22,9 @@ public class ShipMove : MonoBehaviour
     private int framesHeld;
     private bool stopped;
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-		instance = this;
+        instance = this;
         speed = 0;
         turningSpeedNow = 0;
         accel = 0.02f;
@@ -34,13 +34,13 @@ public class ShipMove : MonoBehaviour
         turningSpeed = 60f;
         framesHeld = 0;
         stopped = true;
-	}
+    }
 
-	//speed  get
-	public float Speed 
-	{ 
-		get{return speed;}
-	} 
+    //speed  get
+    public float Speed
+    {
+        get { return speed; }
+    }
 
     void Accelerate()
     {
@@ -49,45 +49,45 @@ public class ShipMove : MonoBehaviour
             stopped = true;
             speed = 0f;
         }
-        else if ( speed + accel <= maxSpeed+0.01f )
+        else if (speed + accel <= maxSpeed + 0.01f)
         {
             speed += accel;
         }
     }
     void Astern()
     {
-        if( ( speed + astern ) * speed < 0  )
+        if ((speed + astern) * speed < 0)
         {
             stopped = true;
             speed = 0f;
         }
-        else if( speed + astern >= maxAstSpeed-0.01f )
+        else if (speed + astern >= maxAstSpeed - 0.01f)
         {
             speed += astern;
         }
     }
     void TurnLeft()
     {
-        if(turningSpeedNow < turningSpeed)
+        if (turningSpeedNow < turningSpeed)
             turningSpeedNow += turningSpeed;
     }
     void TurnRight()
     {
-        if(turningSpeedNow > -turningSpeed)
+        if (turningSpeedNow > -turningSpeed)
             turningSpeedNow -= turningSpeed;
     }
     void Control()
     {
         //W
-        if(Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             stopped = false;
             framesHeld = 0;
             Accelerate();
         }
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-            if(stopped == true && framesHeld <= framesBeforeLaunch)
+            if (stopped == true && framesHeld <= framesBeforeLaunch)
             {
                 framesHeld++;
             }
@@ -97,9 +97,9 @@ public class ShipMove : MonoBehaviour
                 stopped = false;
                 Accelerate();
             }
-            
+
         }
-        if(Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W))
         {
 
         }
@@ -139,7 +139,7 @@ public class ShipMove : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
-            
+
         }
         //D
         if (Input.GetKeyDown(KeyCode.D))
@@ -156,12 +156,12 @@ public class ShipMove : MonoBehaviour
         }
     }
 
-	// Update is called once per frame
-	void FixedUpdate ()
+    // Update is called once per frame
+    void FixedUpdate()
     {
         Control();
         transform.Translate(Vector3.up * speed * Time.deltaTime);
         transform.Rotate(0, 0, Time.deltaTime * turningSpeedNow);
         //Debug.Log(transform.rotation.eulerAngles);
-	}
+    }
 }

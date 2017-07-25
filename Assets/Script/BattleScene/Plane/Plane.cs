@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Plane : MonoBehaviour {
+public abstract class Plane : MonoBehaviour
+{
     public float health;
     public GameObject explode;
 
@@ -15,9 +16,10 @@ public abstract class Plane : MonoBehaviour {
     public float maxturning;
     public float tacc;
     public float dtacc;
-    
-	// Use this for initialization
-	protected void Start () {
+
+    // Use this for initialization
+    protected void Start()
+    {
         speed = 0;
         maxspeed = 6f;
         acc = 0.02f;
@@ -26,7 +28,7 @@ public abstract class Plane : MonoBehaviour {
         maxturning = 30f;
         tacc = 1f;
         dtacc = 1f;
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -77,11 +79,11 @@ public abstract class Plane : MonoBehaviour {
             else { turning = maxturning; }
         }
         if (Input.GetKeyUp(KeyCode.LeftArrow)) turning = 0;
- /*       else if(!Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (turning > 0) turning -= dacc;
-            else turning = 0;
-        }*/
+        /*       else if(!Input.GetKeyDown(KeyCode.LeftArrow))
+               {
+                   if (turning > 0) turning -= dacc;
+                   else turning = 0;
+               }*/
 
         //press D to turn right
         if (Input.GetKey(KeyCode.RightArrow))
@@ -101,8 +103,9 @@ public abstract class Plane : MonoBehaviour {
     }
 
     protected abstract void Control();
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         Move();
-	}
+    }
 }

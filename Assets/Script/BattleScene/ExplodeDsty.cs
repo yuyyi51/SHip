@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplodeDsty : MonoBehaviour {
+public class ExplodeDsty : MonoBehaviour
+{
 
-	public float timeTodsty;
+    public float timeTodsty;
 
-	// Use this for initialization
-	void Start () {
-		Destroy (gameObject, timeTodsty);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+        Destroy(gameObject, timeTodsty);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

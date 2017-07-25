@@ -19,7 +19,7 @@ public class BattleController : MonoBehaviour
     {
         GameObject result = null;
         float minDis = radii;
-        foreach(GameObject obj in objects)
+        foreach (GameObject obj in objects)
         {
             //Debug.Log(obj.transform.position);
             //Debug.Log(center);
@@ -59,22 +59,22 @@ public class BattleController : MonoBehaviour
         objects.Add(GameObject.Find("testTarget"));
         //Debug.Log("!!!");
     }
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Vector3 v = new Vector3();
             v.x = Random.Range(-10, 10);
             v.y = Random.Range(-10, 10);
             v.z = 0;
-            instance.AddObjcet(Instantiate(enemy, v, new Quaternion())) ;
+            instance.AddObjcet(Instantiate(enemy, v, new Quaternion()));
         }
-	}
+    }
 }
