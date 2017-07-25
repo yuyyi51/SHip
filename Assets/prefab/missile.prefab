@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timetodestroy: 10
-  speed: 2
+  speed: 5
   minSpeed: 20
   maxSpeed: 50
   damage: 5

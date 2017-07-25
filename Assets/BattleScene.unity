@@ -108,11 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &108849364 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1895318315036374, guid: 0c4667b3df782d04f8249ed61d626da0,
-    type: 2}
-  m_PrefabInternal: {fileID: 442924631}
 --- !u!1 &204682559
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,11 +625,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1699367444}
     m_Modifications:
-    - target: {fileID: 114881990903900326, guid: 0c4667b3df782d04f8249ed61d626da0,
-        type: 2}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4632433950345970, guid: 0c4667b3df782d04f8249ed61d626da0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 8.21
@@ -667,6 +657,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114044062128757314, guid: 0c4667b3df782d04f8249ed61d626da0,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1406325423}
     - target: {fileID: 224054443054847888, guid: 0c4667b3df782d04f8249ed61d626da0,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -675,6 +670,7 @@ Prefab:
     - target: {fileID: 224054443054847888, guid: 0c4667b3df782d04f8249ed61d626da0,
         type: 2}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114881990903900326, guid: 0c4667b3df782d04f8249ed61d626da0,
@@ -715,40 +711,10 @@ Prefab:
     - target: {fileID: 212690354597029078, guid: 0c4667b3df782d04f8249ed61d626da0,
         type: 2}
       propertyPath: m_MaskInteraction
+=======
+>>>>>>> refs/remotes/origin/master
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 212437345436111478, guid: 0c4667b3df782d04f8249ed61d626da0,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4547801797884092, guid: 0c4667b3df782d04f8249ed61d626da0, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212437345436111478, guid: 0c4667b3df782d04f8249ed61d626da0,
-        type: 2}
-      propertyPath: m_MaskInteraction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221712668406884, guid: 0c4667b3df782d04f8249ed61d626da0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221712668406884, guid: 0c4667b3df782d04f8249ed61d626da0, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 212690354597029078, guid: 0c4667b3df782d04f8249ed61d626da0,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114044062128757314, guid: 0c4667b3df782d04f8249ed61d626da0,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1406325423}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c4667b3df782d04f8249ed61d626da0, type: 2}
   m_IsPrefabParent: 0
@@ -839,6 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd0604fbda09ed4b9aca48cc9f5a993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 1895318315036374, guid: 0c4667b3df782d04f8249ed61d626da0, type: 2}
 --- !u!212 &477311379
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1494,22 +1461,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
---- !u!1 &970258020 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1231540945359926, guid: 0c4667b3df782d04f8249ed61d626da0,
-    type: 2}
-  m_PrefabInternal: {fileID: 442924631}
---- !u!114 &970258021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 970258020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abde361656fb996408c1e0bb43c61626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &975475444
 GameObject:
   m_ObjectHideFlags: 0
