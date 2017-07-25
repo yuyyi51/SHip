@@ -169,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 274469460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 367307740}
@@ -287,16 +287,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57ccad293b04744b84cb22f29fcbeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
+  health: 0
+  explode: {fileID: 0}
   maxspeed: 0
   acc: 0
   dacc: 0
   maxturning: 0
   tacc: 0
   dtacc: 0
-  muzzle: {fileID: 367307739}
-  blast: {fileID: 1523816470357916, guid: 630619ed445db674faed6d556d7f6792, type: 2}
+  muzzle: {fileID: 0}
+  blast: {fileID: 0}
   cd: 0.2
 --- !u!1 &296269740
 GameObject:
@@ -2450,7 +2450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blast: {fileID: 1523816470357916, guid: 630619ed445db674faed6d556d7f6792, type: 2}
   muzzle: {fileID: 353726266}
-  cd1: 0.5
+  cd1: 0.1
   missile: {fileID: 1313373461065832, guid: 30afec974f899dc48a0afd65e381fb48, type: 2}
   launcher: {fileID: 353726266}
   cd2: 2
