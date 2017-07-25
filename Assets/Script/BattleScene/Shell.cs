@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shell : MonoBehaviour {
+public class Shell : MonoBehaviour
+{
 
-	private float timetodestroy;
-	public float speed = 15;
-	public float damage = 5;
+    private float timetodestroy;
+    public float speed = 15;
+    public float damage = 5;
     public float minRange = 3;
     public float maxRange = 15;
     public float range;
     private Vector3 direction;
     public float maxDispersion;
 
+    public Vector3 shipToward;
+    public float shipSpeed;
+
     public GameObject explode;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         if (range > maxRange)
             range = maxRange;
@@ -40,38 +44,40 @@ public class Shell : MonoBehaviour {
         Vector3 shiptoward;
         float shipspeed;
 
-        shiptoward = ShipMove.instance.transform.up;
-		shiptoward.Normalize();
-        shipspeed = ShipMove.instance.Speed;
+        shiptoward = shipToward;
+        shipspeed = shipSpeed;
+        shiptoward.Normalize();
         //Debug.Log(shipspeed);
         shiptoward *= shipspeed;
         //Debug.Log(shiptoward);
-        
+
         direction = v1 + shiptoward;
         speed = direction.magnitude;
         direction = transform.InverseTransformVector(direction);
         direction.Normalize();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         timetodestroy = timetodestroy - Time.deltaTime;
         gameObject.transform.Translate(direction * speed * Time.deltaTime);
         //Debug.Log(transform.position);
 
-		if (timetodestroy < 0) {
+        if (timetodestroy < 0)
+        {
             explode.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
 
             Instantiate(explode, gameObject.transform.position + Vector3.back, gameObject.transform.rotation);
 
             Destroy(gameObject);
-		}    
-	
-	}
+        }
 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.GetComponent<is_en_tag>().tag_kind == is_en_tag.kind.ship && other.GetComponent<is_en_tag>().is_enemy != gameObject.GetComponent<is_en_tag>().is_enemy)
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<is_en_tag>().tag_kind == is_en_tag.kind.ship && other.GetComponent<is_en_tag>().is_enemy != gameObject.GetComponent<is_en_tag>().is_enemy)
         {
             explode.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
 

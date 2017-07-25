@@ -29,7 +29,7 @@ public class ShipMove : MonoBehaviour
         turningSpeedNow = 0;
         accel = 0.02f;
         astern = -0.015f;
-        maxSpeed = 6f;
+        maxSpeed = 10f;
         maxAstSpeed = -3f;
         turningSpeed = 60f;
         framesHeld = 0;
@@ -157,7 +157,7 @@ public class ShipMove : MonoBehaviour
     }
 
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         Control();
         transform.Translate(Vector3.up * speed * Time.deltaTime);

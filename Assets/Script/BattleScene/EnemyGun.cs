@@ -30,7 +30,13 @@ public class EnemyGun : MonoBehaviour {
 	void Update () {
 
 		if (target == null)
-			target = BattleController.instance.FindClosestEnemy (gameObject.transform.position, Range, !GetComponentInParent<is_en_tag> ().is_enemy);
+        {
+            target = BattleController.instance.FindClosestEnemy(gameObject.transform.position, Range, !GetComponentInParent<is_en_tag>().is_enemy);
+            if(target == null)
+            {
+                return;
+            }
+        }
 
 		Vector3 forwardDIr = target.transform.position - transform.position;
 

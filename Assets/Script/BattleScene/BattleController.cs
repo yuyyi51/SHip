@@ -57,7 +57,7 @@ public class BattleController : MonoBehaviour
         objects = new List<GameObject>();
         objects.Add(GameObject.Find("Shipbody"));
         objects.Add(GameObject.Find("testTarget"));
-        Debug.Log("!!!");
+        //Debug.Log("!!!");
     }
 	// Use this for initialization
 	void Start ()

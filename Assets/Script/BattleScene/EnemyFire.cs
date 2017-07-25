@@ -2,33 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFire : MonoBehaviour {
+public class EnemyFire : MonoBehaviour
+{
 
 
-	public float fireRate;
+    public float fireRate;
 
-	private float reload;
+    private float reload;
 
-	public GameObject blast;
-	public GameObject muzzle;
+    public GameObject blast;
+    public GameObject muzzle;
 
-	// Use this for initialization
-	void Start () {
-		reload = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		reload += Time.deltaTime;
+    // Use this for initialization
+    void Start()
+    {
+        reload = 0;
+    }
 
-		if (reload >= fireRate) {
+    // Update is called once per frame
+    void Update()
+    {
+        reload += Time.deltaTime;
 
-			blast.GetComponent<is_en_tag> ().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
+        if (reload >= fireRate)
+        {
+
+            blast.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
 
             GameObject bullet = Instantiate(blast, muzzle.transform.position, muzzle.transform.rotation);
             bullet.GetComponent<Shell>().range = 10;
-			reload = 0;
-		}
+            EnemyShipCrlt s = GetComponentInParent<EnemyShipCrlt>();
+            bullet.GetComponent<Shell>().shipSpeed = s.getSpeed();
+            bullet.GetComponent<Shell>().shipToward = s.gameObject.transform.up;
 
-	}
+            reload = 0;
+        }
+
+    }
 }
