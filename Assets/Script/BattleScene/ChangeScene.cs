@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ChangeScene : MonoBehaviour {
 
-	//public GameObject NScene;
+	public string NScene;
+
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +27,7 @@ public class ChangeScene : MonoBehaviour {
 	{  
 		//GoNextScene (NScene);
 
-		Application.LoadLevel("WorldScene");//切换到场景Scene_2  
+		Application.LoadLevel(NScene);
 	}  
 
 }

@@ -7,13 +7,24 @@ public class EnemyGun : MonoBehaviour {
 
 	public float speed;
 
+	public float Range;
+
 	public GameObject target;
 
 	// Use this for initialization
 	void Start () {
-		target = GameObject.Find("Shipbody");
+		gameObject.GetComponent<CircleCollider2D> ().radius = Range;
 	}
-	
+
+	void getTarget(){
+		Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position, Range);
+		foreach (Collider hits in colliders)  //遍历碰撞器数组
+		{
+			target = hits;
+
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		Vector3 forwardDIr = target.transform.position - transform.position;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameController : MonoBehaviour
 {
 
@@ -16,7 +17,8 @@ public class GameController : MonoBehaviour
 
     void Pause()
     {
-        Time.timeScale = 0;
+		
+         Time.timeScale = 0;
         is_pause = true;
     }
 
