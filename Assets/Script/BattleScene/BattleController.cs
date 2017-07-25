@@ -7,6 +7,10 @@ public class BattleController : MonoBehaviour
     public static BattleController instance;
     private List<GameObject> objects;
     public GameObject enemy;
+    public void AddObjcet(GameObject obj)
+    {
+        objects.Add(obj);
+    }
     public void DeleteFromObjects(GameObject obj)
     {
         objects.Remove(obj);
@@ -70,7 +74,7 @@ public class BattleController : MonoBehaviour
             v.x = Random.Range(-10, 10);
             v.y = Random.Range(-10, 10);
             v.z = 0;
-            Instantiate(enemy, v, new Quaternion());
+            instance.AddObjcet(Instantiate(enemy, v, new Quaternion())) ;
         }
 	}
 }
