@@ -1617,6 +1617,9 @@ MonoBehaviour:
   maxSpeed: 0
   maxAstSpeed: 0
   turningAcc: 0
+  stopped: 0
+  maxTurningSpeed: 0
+  weaponSet: []
 --- !u!61 &1406325428
 BoxCollider2D:
   m_ObjectHideFlags: 0

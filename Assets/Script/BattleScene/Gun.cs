@@ -6,7 +6,10 @@ class Gun : Weapon
     override public void Fire(GameObject obj, Vector3 point, GameObject target)
     {
         if (!cd.ColdDownFinished())
+        {
             cd.ColdDown(Time.deltaTime);
+            return;
+        }
         Vector3 v1 = point - transform.position;
         foreach (GameObject muzz in muzzle)
         {
