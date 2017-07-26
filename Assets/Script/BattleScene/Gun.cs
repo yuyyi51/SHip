@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 class Gun : Weapon
 {
-    override public void Fire(GameObject obj ,Vector3 point, GameObject target)
+    override public void Fire(GameObject obj, Vector3 point, GameObject target)
     {
         if (!cd.ColdDownFinished())
             cd.ColdDown(Time.deltaTime);
-        bullet.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
         Vector3 v1 = point - transform.position;
         foreach (GameObject muzz in muzzle)
         {
@@ -18,6 +15,7 @@ class Gun : Weapon
             tar.z = 0;
             float range = tar.magnitude;
             GameObject bull = Instantiate(bullet, muzz.transform.position, muzz.transform.rotation);
+            bull.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
             bull.GetComponent<Shell>().range = range;
             bull.GetComponent<Shell>().shipSpeed = obj.GetComponent<Ship>().Speed;
             bull.GetComponent<Shell>().shipToward = obj.transform.up;

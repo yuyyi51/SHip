@@ -11,13 +11,14 @@ public class Ship : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private float turningSpeed;         //当前转向速度
+    public float turningSpeed;         //当前转向速度
     public float accel;                 //加速度
     public float astern;                //后退加速度
     public float maxSpeed;              //最大速度
     public float maxAstSpeed;           //最大后退速度
     public float turningAcc;            //转向加速度
-    private bool stopped;               //是否停止
+    public bool stopped;               //是否停止
+    public float maxTurningSpeed;       //最大转向速度
     //武器
     public GameObject[] weaponSet;
 
@@ -25,8 +26,44 @@ public class Ship : MonoBehaviour
     {
         get { return speed; }
     }
+    public void Accelerate()
+    {
+        if ((speed + accel) * speed < 0)
+        {
+            stopped = true;
+            speed = 0f;
+        }
+        else if (speed + accel <= maxSpeed + 0.01f)
+        {
+            speed += accel;
+        }
+    }
+    public void Astern()
+    {
+        if ((speed + astern) * speed < 0)
+        {
+            stopped = true;
+            speed = 0f;
+        }
+        else if (speed + astern >= maxAstSpeed - 0.01f)
+        {
+            speed += astern;
+        }
+    }
 
-    void Fire(int id, Vector3 point, GameObject target)
+    public void TurnLeft()
+    {
+        if (turningSpeed < maxTurningSpeed)
+            turningSpeed += maxTurningSpeed;
+    }
+
+    public void TurnRight()
+    {
+        if (turningSpeed > -turningSpeed)
+            turningSpeed -= turningSpeed;
+    }
+
+    public void Fire(int id, Vector3 point, GameObject target = null)
     {
         weaponSet[id].GetComponent<Weapon>().Fire(gameObject, point, target);
     }
