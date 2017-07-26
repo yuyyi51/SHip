@@ -1610,6 +1610,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
   health: 100
+  speed: 0
+  turningSpeed: 0
+  accel: 0
+  astern: 0
+  maxSpeed: 0
+  maxAstSpeed: 0
+  turningAcc: 0
 --- !u!61 &1406325428
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2263,7 +2270,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1852868402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6d102c51e858c4982c8b6e0843b377, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f0a999850460ae41878e74b05c667c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5

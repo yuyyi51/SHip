@@ -1,25 +1,27 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
-
-public class Gun : MonoBehaviour
+class Gun : Weapon
 {
-    public float speed;
-	// Use this for initialization
-	void Start ()
+    override public void Fire(GameObject obj ,Vector3 point, GameObject target)
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position;
-        target.z = 0f;
-        target.Normalize();
-        float euler = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg - 90f;
-        Quaternion TargetRotation = Quaternion.Euler(0, 0, euler);
-        Quaternion re = Quaternion.Slerp(transform.rotation, TargetRotation, Time.deltaTime * speed);
-        transform.rotation = re;
+        if (!cd.ColdDownFinished())
+            cd.ColdDown(Time.deltaTime);
+        bullet.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
+        Vector3 v1 = point - transform.position;
+        foreach (GameObject muzz in muzzle)
+        {
+            Vector3 v2 = muzz.transform.position - transform.position;
+            Vector3 tar = v1 - v2;
+            tar.z = 0;
+            float range = tar.magnitude;
+            GameObject bull = Instantiate(bullet, muzz.transform.position, muzz.transform.rotation);
+            bull.GetComponent<Shell>().range = range;
+            bull.GetComponent<Shell>().shipSpeed = obj.GetComponent<Ship>().Speed;
+            bull.GetComponent<Shell>().shipToward = obj.transform.up;
+        }
+        cd.StartColdDown();
     }
 }

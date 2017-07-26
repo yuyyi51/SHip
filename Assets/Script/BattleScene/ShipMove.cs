@@ -12,11 +12,11 @@ public class ShipMove : MonoBehaviour
     private float speed;
     [SerializeField]
     private float turningSpeedNow;
-    public float accel;          //加速度
-    public float astern;        //后退加速度
-    public float maxSpeed;        //最大速度
-    public float maxAstSpeed;     //最大后退速度
-    public float turningSpeed;     //转向速度
+    public float accel;                 //加速度
+    public float astern;                //后退加速度
+    public float maxSpeed;              //最大速度
+    public float maxAstSpeed;           //最大后退速度
+    public float turningSpeed;          //转向速度
     public int framesBeforeLaunch = 5;
     [SerializeField]
     private int framesHeld;
