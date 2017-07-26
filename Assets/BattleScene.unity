@@ -2325,7 +2325,7 @@ MonoBehaviour:
   - {fileID: 353726266}
   - {fileID: 906438751}
   - {fileID: 1603349380}
-  cd1: 0.5
+  cd1: 0.1
   missile: {fileID: 1313373461065832, guid: 30afec974f899dc48a0afd65e381fb48, type: 2}
   launcher: {fileID: 353726266}
   radii: 10
