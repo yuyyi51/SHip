@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40e2125612b9584e89cb36dbdf8b4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  framesBeforeLaunch: 30
+  framesBeforeLaunch: 60
   framesHeld: 0
   radii: 3
 --- !u!114 &26036338
@@ -195,12 +195,12 @@ MonoBehaviour:
   health: 100
   speed: 0
   turningSpeed: 0
-  accel: 1
-  astern: -0.5
+  accel: 2
+  astern: -1
   maxSpeed: 10
   maxAstSpeed: -6
-  turningAcc: 20
-  stopped: 0
+  turningAcc: 30
+  stopped: 1
   maxTurningSpeed: 60
   weaponSet:
   - {fileID: 1805832788}
@@ -348,12 +348,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 34556126}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c53400e897b1904a8b538991b2b1bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CDUI: {fileID: 34556129}
+  ship: {fileID: 26036334}
   number: 0
 --- !u!114 &34556129
 MonoBehaviour:
@@ -595,6 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0855994a3963df94ca4d454bfa64190f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pause: {fileID: 0}
 --- !u!4 &194637240
 Transform:
   m_ObjectHideFlags: 0
@@ -2087,12 +2089,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1651065362}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c53400e897b1904a8b538991b2b1bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CDUI: {fileID: 1651065365}
+  ship: {fileID: 26036334}
   number: 1
 --- !u!114 &1651065365
 MonoBehaviour:
@@ -2470,12 +2473,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1872385968}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28abf0d6342d4d4479eed77a3a7dea81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedUI: {fileID: 1872385971}
+  ship: {fileID: 26036334}
 --- !u!114 &1872385971
 MonoBehaviour:
   m_ObjectHideFlags: 0
