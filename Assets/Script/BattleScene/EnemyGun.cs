@@ -34,7 +34,7 @@ public class EnemyGun : MonoBehaviour
 
         if (target == null)
         {
-            target = BattleController.instance.FindClosestEnemy(gameObject.transform.position, Range, !GetComponentInParent<is_en_tag>().is_enemy);
+            target = BattleController.instance.FindClosestEnemy(gameObject.transform.position, Range, GetComponentInParent<is_en_tag>().is_enemy);
             if (target == null)
             {
                 return;

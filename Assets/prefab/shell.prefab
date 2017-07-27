@@ -103,9 +103,11 @@ MonoBehaviour:
   speed: 15
   damage: 1
   minRange: 3
-  maxRange: 15
-  range: 0
+  maxRange: 20
+  range: 20
   maxDispersion: 2
+  shipToward: {x: 0, y: 0, z: 0}
+  shipSpeed: 0
   explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
 --- !u!114 &114409757527287212
 MonoBehaviour:
