@@ -10,11 +10,11 @@ public class MenuMove : MonoBehaviour {
 	}
 
 	public void In(){
-		gameObject.transform.position = new Vector3(0,0,0);
+		gameObject.transform.position = new Vector3(0,0,-9);
 	}
 
 	public void Out(){
-		gameObject.transform.position = new Vector3(0,50,0);
+		gameObject.transform.position = new Vector3(0,50,-9);
 	}
 	
 	// Update is called once per frame
