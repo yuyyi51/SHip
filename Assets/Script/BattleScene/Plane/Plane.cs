@@ -5,29 +5,34 @@ using UnityEngine;
 
 public abstract class Plane : MonoBehaviour
 {
-    public float health;
+    public float maxhealth = 10;
+    float health;
     public GameObject explode;
+    protected GameObject target = null;
+    protected GameObject moveTarget = null;
+    protected GameObject motherShip;
+    protected bool damaged;
 
-    private float speed;
-    public float maxspeed;
-    public float acc;
-    public float dacc;
-    private float turning;
-    public float maxturning;
-    public float tacc;
-    public float dtacc;
+    protected float sight = 50;
+    protected float range;
+
+    float speed;
+    public float maxspeed = 6f;
+    public float acc = .02f;
+    public float dacc = .005f;
+    float turning;
+    public float maxturning = 30f;
+    public float tacc = 1f;
+    public float dtacc = 1f;
 
     // Use this for initialization
-    protected void Start()
+    protected void Awake()
     {
+        health = maxhealth;
+        damaged = false;
+
         speed = 0;
-        maxspeed = 6f;
-        acc = 0.02f;
-        dacc = 0.005f;
         turning = 0;
-        maxturning = 30f;
-        tacc = 1f;
-        dtacc = 1f;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -51,10 +56,15 @@ public abstract class Plane : MonoBehaviour
         }
     }
 
-    protected void Move()
+    protected void setMotherShip(GameObject m)
     {
-        //hold W to accelerate
-        if (Input.GetKey(KeyCode.UpArrow))
+        motherShip = m;
+    }
+
+    protected void PosTrans(bool w,bool s,bool a,bool d)
+    {
+        //accelerate
+        if (w)
         {
             if (speed < maxspeed) { speed += acc; }
             else { speed = maxspeed; }
@@ -65,33 +75,33 @@ public abstract class Plane : MonoBehaviour
             else { speed = 0; }
         }
 
-        //press S to force decelerating
-        if (Input.GetKey(KeyCode.DownArrow))
+        //force decelerating
+        if (s)
         {
             if (speed > acc) { speed -= acc; }
             else { speed = 0; }
         }
 
-        //press A to turn left
-        if (Input.GetKey(KeyCode.LeftArrow))
+        //turn left
+        if (a)
         {
             if (turning < maxturning) { turning += tacc; }
             else { turning = maxturning; }
         }
-        if (Input.GetKeyUp(KeyCode.LeftArrow)) turning = 0;
+        else turning = 0;
         /*       else if(!Input.GetKeyDown(KeyCode.LeftArrow))
                {
                    if (turning > 0) turning -= dacc;
                    else turning = 0;
                }*/
 
-        //press D to turn right
-        if (Input.GetKey(KeyCode.RightArrow))
+        //turn right
+        if (d)
         {
             if (turning > -maxturning) { turning -= tacc; }
             else { turning = -maxturning; }
         }
-        if (Input.GetKeyUp(KeyCode.RightArrow)) turning = 0;
+        else turning = 0;
         /*       else if(!Input.GetKeyDown(KeyCode.LeftArrow))
                {
                    if (turning < 0) turning += dacc;
@@ -102,10 +112,30 @@ public abstract class Plane : MonoBehaviour
         transform.Rotate(0, 0, turning * Time.deltaTime);
     }
 
-    protected abstract void Control();
-    // Update is called once per frame
-    void Update()
+    protected void Move()
     {
-        Move();
+        bool w, s, a, d;
+        w = s = a = d = false;
+        if (damaged || !target)
+            moveTarget = motherShip;
+        else
+            moveTarget = target;
+        Vector3 tarVec = moveTarget.transform.position - transform.position;
+        Vector3 faceVec = transform.up;
+        tarVec.z = faceVec.z = 0;
+        float vertical = Vector3.Dot(tarVec, faceVec);
+        float horizenal = Vector3.Cross(tarVec, faceVec).z;
+        if (vertical > 0) w = true;
+        if (horizenal > 0) a = true;
+        if (horizenal < 0) d = true;
+        PosTrans(w, s, a, d);
+    }
+
+    protected abstract void Control();
+
+    protected void Update()
+    {
+        if (health < maxhealth * .2) damaged = true;
+        target = BattleController.instance.FindClosestEnemy(transform.position, sight, GetComponent<is_en_tag>().is_enemy);
     }
 }
