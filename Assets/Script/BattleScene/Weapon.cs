@@ -28,4 +28,8 @@ public abstract class Weapon : MonoBehaviour
     {
         Tools.TurnRight(gameObject, turningSpeed);
     }
+    protected void Update()
+    {
+        cd.ColdDown(Time.deltaTime);
+    }
 }

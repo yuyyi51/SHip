@@ -28,39 +28,39 @@ public class Ship : MonoBehaviour
     }
     public void Accelerate()
     {
-        if ((speed + accel) * speed < 0)
+        if ((speed + accel * Time.deltaTime) * speed < 0)
         {
             stopped = true;
             speed = 0f;
         }
-        else if (speed + accel <= maxSpeed + 0.01f)
+        else if (speed + accel * Time.deltaTime <= maxSpeed + 0.01f)
         {
-            speed += accel;
+            speed += accel * Time.deltaTime;
         }
     }
     public void Astern()
     {
-        if ((speed + astern) * speed < 0)
+        if ((speed + astern * Time.deltaTime) * speed < 0)
         {
             stopped = true;
             speed = 0f;
         }
-        else if (speed + astern >= maxAstSpeed - 0.01f)
+        else if (speed + astern * Time.deltaTime >= maxAstSpeed - 0.01f)
         {
-            speed += astern;
+            speed += astern * Time.deltaTime;
         }
     }
 
     public void TurnLeft()
     {
-        if (turningSpeed < maxTurningSpeed)
-            turningSpeed += maxTurningSpeed;
+        if (turningSpeed + turningAcc * Time.deltaTime < maxTurningSpeed)
+            turningSpeed += turningAcc * Time.deltaTime;
     }
 
     public void TurnRight()
     {
-        if (turningSpeed > -turningSpeed)
-            turningSpeed -= turningSpeed;
+        if (turningSpeed > -turningAcc * Time.deltaTime)
+            turningSpeed -= turningAcc * Time.deltaTime;
     }
 
     public void Fire(int id, Vector3 point, GameObject target = null)
@@ -77,7 +77,7 @@ public class Ship : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        stopped = true;
     }
 
 

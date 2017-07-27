@@ -7,7 +7,6 @@ class Gun : Weapon
     {
         if (!cd.ColdDownFinished())
         {
-            cd.ColdDown(Time.deltaTime);
             return;
         }
         Vector3 v1 = point - transform.position;
@@ -24,5 +23,9 @@ class Gun : Weapon
             bull.GetComponent<Shell>().shipToward = obj.transform.up;
         }
         cd.StartColdDown();
+    }
+    new void Update()
+    {
+        base.Update();
     }
 }

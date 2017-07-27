@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Speed : MonoBehaviour {
 
 	public Slider SpeedUI;
-
+    public GameObject ship;
 
 	// Use this for initialization
 	void Start () { 
@@ -16,8 +16,8 @@ public class Speed : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (ShipMove.instance.Speed >= 0) {
-			float percent = 0.5f * ShipMove.instance.Speed / ShipMove.instance.maxSpeed + 0.5f;
+		if (ship.GetComponent<Ship>().Speed >= 0) {
+			float percent = 0.5f * ship.GetComponent<Ship>().Speed / ship.GetComponent<Ship>().maxSpeed + 0.5f;
 
 			//Debug.Log (percent);
 
@@ -25,8 +25,8 @@ public class Speed : MonoBehaviour {
 
 		}
 
-		if (ShipMove.instance.Speed < 0) {
-			float percent = 0.5f - 0.5f * ShipMove.instance.Speed / ShipMove.instance.maxAstSpeed ;
+		if (ship.GetComponent<Ship>().Speed < 0) {
+			float percent = 0.5f - 0.5f * ship.GetComponent<Ship>().Speed / ship.GetComponent<Ship>().maxAstSpeed ;
 
 			//Debug.Log (percent);
 

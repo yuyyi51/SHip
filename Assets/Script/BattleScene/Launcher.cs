@@ -7,7 +7,6 @@ class Launcher : Weapon
     {
         if (!cd.ColdDownFinished())
         {
-            cd.ColdDown(Time.deltaTime);
             return;
         }
         foreach (GameObject muzz in muzzle)
@@ -16,5 +15,9 @@ class Launcher : Weapon
             m.GetComponent<Missile>().target = target;
         }
         cd.StartColdDown();
+    }
+    new void Update()
+    {
+        base.Update();
     }
 }
