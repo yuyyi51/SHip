@@ -8,20 +8,26 @@ public class torpedoPlane : Plane
     public GameObject torpedo;
     public float cd = 5f;
     public float timer = 0;
+
+    void Start()
+    {
+        range = 20;
+    }
+
     protected override void Control()
     {
         //leftclick to launch a torpado
-        if (Input.GetKeyUp(KeyCode.Mouse0) && timer == 0)
+        if (Vector3.Distance(transform.position, target.transform.position) < range && timer == 0)
         {
             torpedo.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
             Instantiate(torpedo, launcher.transform.position, launcher.transform.rotation);
             timer = cd;
         }
     }
-    void Update()
+    void LateUpdate()
     {
         Move();
-        Control();
+        if (!damaged) Control();
         if (timer > Time.deltaTime) timer -= Time.deltaTime;
         else timer = 0;
     }

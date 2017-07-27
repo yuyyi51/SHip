@@ -5,28 +5,31 @@ using UnityEngine;
 public class bombPlane : Plane
 {
     public GameObject launcher;
-    public GameObject bomb;
+    public GameObject boom;
     public float cd = 10f;
     float timer = 0;
     bool bombing = false;
     public float delay = 2f;
     float delaytimer;
-    void Awake()
+
+    void Start()
     {
         delaytimer = delay;
+        range = 5;
     }
+
     protected override void Control()
     {
-        //leftclick to launch a bomb
-        if (Input.GetKeyUp(KeyCode.Mouse0) && timer == 0)
+        
+        if (Vector3.Distance(transform.position, target.transform.position) < range && timer == 0)
         {
-            bomb.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
-            Instantiate(bomb, launcher.transform.position, launcher.transform.rotation);
+            boom.GetComponent<is_en_tag>().is_enemy = GetComponentInParent<is_en_tag>().is_enemy;
+            Instantiate(boom, launcher.transform.position+Vector3.forward, launcher.transform.rotation);
             bombing = true;
             timer = cd;
         }
     }
-    void Update()
+    void LateUpdate()
     {
         if (bombing)
         {
@@ -40,7 +43,7 @@ public class bombPlane : Plane
         else
         {
             Move();
-            Control();
+            if (!damaged) Control();
         }
         if (timer > Time.deltaTime) timer -= Time.deltaTime;
         else timer = 0;
