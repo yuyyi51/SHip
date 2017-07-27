@@ -48,41 +48,27 @@ public class EnemyShipCrlt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         GameObject en = BattleController.instance.FindClosestEnemy(gameObject.transform.position, 10000f, gameObject.GetComponent<is_en_tag>().is_enemy);//10000f代指正无穷
         if (en == null)
             return;
-
         //Debug.Log ((en.transform.position - gameObject.transform.position));
-
         if ((en.transform.position - gameObject.transform.position).magnitude > range[0])
         { // 炮的射程按照从远到近排列
 
             Tools.TurnTowards(gameObject, en, turnSpd);
-
             if (spd + accel <= maxSpeed)
             {
                 spd += accel;
             }
-
-
-
-
-
         }
-
         else if ((en.transform.position - gameObject.transform.position).magnitude < safeDis)
         {
-
             if (spd + astern >= maxAstSpeed)
             {
                 spd += astern;
             }
-
-
         }
         transform.Translate(Vector3.up * spd * Time.deltaTime);
-
         //Debug.Log (spd);
     }
 }

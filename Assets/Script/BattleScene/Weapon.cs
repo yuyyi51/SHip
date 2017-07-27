@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour
     public GameObject bullet;
     public GameObject[] muzzle;
     public float cdTime;
-    protected CDTime cd;
+    public CDTime cd;
     public float turningSpeed;
 
     void Awake()
