@@ -19,6 +19,14 @@ public class Shell : MonoBehaviour
 
     public GameObject explode;
 
+    public void Initial(float ran, float sSpeed, Vector3 sToward, bool en)
+    {
+        range = ran;
+        shipSpeed = sSpeed;
+        shipToward = sToward;
+        gameObject.GetComponent<is_en_tag>().is_enemy = en;
+    }
+
     // Use this for initialization
     void Start()
     {

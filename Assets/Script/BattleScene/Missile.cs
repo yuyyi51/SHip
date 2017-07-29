@@ -21,6 +21,13 @@ public class Missile : MonoBehaviour
     public GameObject explode;
 
     public float showangle;
+
+    public void Initial(GameObject tar, bool en)
+    {
+        target = tar;
+        gameObject.GetComponent<is_en_tag>().is_enemy = en;
+    }
+
     // Use this for initialization
     void Start()
     {

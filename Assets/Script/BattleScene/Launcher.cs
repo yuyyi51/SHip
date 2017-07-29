@@ -12,7 +12,7 @@ class Launcher : Weapon
         foreach (GameObject muzz in muzzle)
         {
             GameObject m = Instantiate(bullet, muzz.transform.position, muzz.transform.rotation);
-            m.GetComponent<Missile>().target = target;
+            m.GetComponent<Missile>().Initial(target, GetComponentInParent<is_en_tag>().is_enemy);
         }
         cd.StartColdDown();
     }
