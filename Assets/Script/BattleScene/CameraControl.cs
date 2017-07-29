@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-
+    public GameObject Target;
     // Use this for initialization
     void Start()
     {
@@ -14,9 +14,9 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = ShipMove.instance.transform.position - transform.position;
+        Vector3 direction = Target.transform.position - transform.position;
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 target = mouse - ShipMove.instance.transform.position;
+        Vector3 target = mouse - Target.transform.position;
         target /= 3;
         direction += target;
         direction.z = 0f;
