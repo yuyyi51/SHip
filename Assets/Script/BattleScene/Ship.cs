@@ -59,7 +59,7 @@ public class Ship : MonoBehaviour
 
     public void TurnRight()
     {
-        if (turningSpeed > -turningAcc * Time.deltaTime)
+        if (turningSpeed + -turningAcc * Time.deltaTime > -maxTurningSpeed)
             turningSpeed -= turningAcc * Time.deltaTime;
     }
 
