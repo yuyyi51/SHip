@@ -68,7 +68,7 @@ public class BattleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             Vector3 v = new Vector3();
             v.x = Random.Range(-10, 10);

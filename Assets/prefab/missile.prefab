@@ -122,7 +122,7 @@ MonoBehaviour:
   astern: 5
   turnningSpeed: 100
   minDegree: 30
-  beforeAccel: 0.5
+  beforeAccel: 0.2
   target: {fileID: 0}
   explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
   showangle: 0
