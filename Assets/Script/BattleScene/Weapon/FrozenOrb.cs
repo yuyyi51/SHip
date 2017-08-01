@@ -38,7 +38,7 @@ public class FrozenOrb : MonoBehaviour
             float angle = 360.0f / bulletNumber * i + lunchAngle + gameObject.transform.rotation.eulerAngles.z;
             angle %= 360;
             GameObject bull = Instantiate(subBullet, gameObject.transform.position, Quaternion.Euler(0, 0, angle));
-            bull.GetComponent<Shell>().Initial(speed,transform.up,gameObject.GetComponent<is_en_tag>().is_enemy);
+            bull.GetComponent<Shell>().Initial(speed, transform.TransformVector(direction), gameObject.GetComponent<is_en_tag>().is_enemy);
         }
     }
 
