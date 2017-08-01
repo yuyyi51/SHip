@@ -65,7 +65,8 @@ public class Ship : MonoBehaviour
 
     public void Fire(int id, Vector3 point, GameObject target = null)
     {
-        weaponSet[id].GetComponent<Weapon>().Fire(gameObject, point, target);
+        if (id < weaponSet.Length && id >= 0)
+            weaponSet[id].GetComponent<Weapon>().Fire(gameObject, point, target);
     }
 
     void Move()

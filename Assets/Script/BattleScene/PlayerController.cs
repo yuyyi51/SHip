@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int framesHeld;
     public float radii = 3;                     //for weapons need to lock a target
+    public int weaponNumber1 = 0;
+    public int weaponNumber2 = 1;
     void KeyBoardControl(Ship s)
     {
         //W
@@ -78,6 +80,16 @@ public class PlayerController : MonoBehaviour
         {
             s.turningSpeed = 0;
         }
+        //1
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            weaponNumber2 = 1;
+        }
+        //2
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            weaponNumber2 = 2;
+        }
     }
     void MouseControl(Ship s)
     {
@@ -88,12 +100,13 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            s.Fire(0, mouse);
+            GameObject obj = BattleController.instance.FindClosestEnemy(mouse, radii, gameObject.GetComponent<is_en_tag>().is_enemy);
+            s.Fire(weaponNumber1, mouse, obj);
         }
         if (Input.GetKey(KeyCode.Mouse1))
         {
             GameObject obj = BattleController.instance.FindClosestEnemy(mouse, radii, gameObject.GetComponent<is_en_tag>().is_enemy);
-            s.Fire(1, mouse, obj);
+            s.Fire(weaponNumber2, mouse, obj);
         }
     }
     void Control()

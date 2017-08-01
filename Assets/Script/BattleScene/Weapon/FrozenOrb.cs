@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class FrozenOrb : MonoBehaviour
 {
-    private float timetodestroy;
+    private float timetodestroy = 5;
     public float speed = 15;
     public float damage = 5;
-    public float minRange = 3;
-    public float maxRange = 15;
-    public float range;
     private Vector3 direction;
-    public float maxDispersion;
 
     public Vector3 shipToward;
     public float shipSpeed;
@@ -20,34 +16,36 @@ public class FrozenOrb : MonoBehaviour
 
     public GameObject subBullet;
 
-    public void Initial(float ran, float sSpeed, Vector3 sToward, bool en)
+    private float lunchAngle;
+    public float deltaAngle;
+    public float intervalTime = 0.1f;
+    private float time;
+    public float bulletNumber;
+
+
+    public void Initial(float sSpeed, Vector3 sToward, bool en)
     {
-        range = ran;
         shipSpeed = sSpeed;
         shipToward = sToward;
         gameObject.GetComponent<is_en_tag>().is_enemy = en;
+        lunchAngle = 0;
     }
+
+    void Fire()
+    {
+        for (int i = 0; i != bulletNumber; ++i)
+        {
+            float angle = 360.0f / bulletNumber * i + lunchAngle + gameObject.transform.rotation.eulerAngles.z;
+            angle %= 360;
+            GameObject bull = Instantiate(subBullet, gameObject.transform.position, Quaternion.Euler(0, 0, angle));
+            bull.GetComponent<Shell>().Initial(speed,transform.up,gameObject.GetComponent<is_en_tag>().is_enemy);
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
-        if (range > maxRange)
-            range = maxRange;
-        else if (range < minRange)
-            range = minRange;
-        Vector3 v1 = transform.up * range;
-
-        float dispersion = Random.Range(0f, 1f);
-        float angle = Random.Range(0f, 360f);
-        dispersion *= maxDispersion;
-        Vector3 v2 = new Vector3();
-        v2.x = Mathf.Cos(angle);
-        v2.y = Mathf.Sin(angle);
-        v2.z = 0;
-        v2 *= dispersion;
-        v1 += v2;
-        timetodestroy = v1.magnitude / speed;
-        v1.Normalize();
-        v1 *= speed;
+        Vector3 v1 = transform.up * speed;
 
         Vector3 shiptoward;
         float shipspeed;
@@ -63,6 +61,7 @@ public class FrozenOrb : MonoBehaviour
         speed = direction.magnitude;
         direction = transform.InverseTransformVector(direction);
         direction.Normalize();
+        time = intervalTime;
     }
 
     // Update is called once per frame
@@ -70,6 +69,16 @@ public class FrozenOrb : MonoBehaviour
     {
         timetodestroy = timetodestroy - Time.deltaTime;
         gameObject.transform.Translate(direction * speed * Time.deltaTime);
+        if( time >= intervalTime )
+        {
+            Fire();
+            lunchAngle += deltaAngle;
+            time = 0;
+        }
+        else
+        {
+            time += Time.deltaTime;
+        }
         //Debug.Log(transform.position);
 
         if (timetodestroy < 0)

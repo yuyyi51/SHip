@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4091178104743492}
   - component: {fileID: 212098203935257042}
   - component: {fileID: 114318674154635020}
+  - component: {fileID: 114475042883864796}
   m_Layer: 0
   m_Name: FrozOrb
   m_TagString: Untagged
@@ -52,16 +53,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a4dda8c831e0847b5b851b20827f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 5
   damage: 5
-  minRange: 3
-  maxRange: 15
-  range: 0
-  maxDispersion: 0
   shipToward: {x: 0, y: 0, z: 0}
   shipSpeed: 0
   explode: {fileID: 1382120567581036, guid: 55caf8aee2646fe4599eedeeed990dda, type: 2}
   subBullet: {fileID: 1523816470357916, guid: 630619ed445db674faed6d556d7f6792, type: 2}
+  deltaAngle: 5
+  intervalTime: 0
+  bulletNumber: 6
+--- !u!114 &114475042883864796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753867169172184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c3e0d04fa81e041b657c6f57c9071f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_enemy: 0
+  tag_kind: 1
 --- !u!212 &212098203935257042
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,7 +112,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.1, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

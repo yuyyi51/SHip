@@ -19,7 +19,7 @@ public class Shell : MonoBehaviour
 
     public GameObject explode;
 
-    public void Initial(float ran, float sSpeed, Vector3 sToward, bool en)
+    public void Initial(float sSpeed, Vector3 sToward, bool en, float ran = 7)
     {
         range = ran;
         shipSpeed = sSpeed;
