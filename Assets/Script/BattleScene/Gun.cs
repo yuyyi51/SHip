@@ -17,7 +17,7 @@ class Gun : Weapon
             tar.z = 0;
             float range = tar.magnitude;
             GameObject bull = Instantiate(bullet, muzz.transform.position, muzz.transform.rotation);
-            bull.GetComponent<Shell>().Initial(obj.GetComponent<Ship>().Speed, obj.transform.up, GetComponentInParent<is_en_tag>().is_enemy, range);
+            bull.GetComponent<Bullet>().Initial(obj.GetComponent<Ship>().Speed, obj.transform.up, GetComponentInParent<is_en_tag>().is_enemy, range);
         }
         cd.StartColdDown();
     }

@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FrozenOrb : MonoBehaviour
+public class FrozenOrb : Bullet
 {
-    private float timetodestroy = 5;
-    public float speed = 15;
-    public float damage = 5;
     private Vector3 direction;
 
     public Vector3 shipToward;
@@ -16,19 +13,26 @@ public class FrozenOrb : MonoBehaviour
 
     public GameObject subBullet;
 
-    private float lunchAngle;
+    private float launchAngle;
     public float deltaAngle;
     public float intervalTime = 0.1f;
     private float time;
     public float bulletNumber;
 
+    new public void Initial(float iniSpeed, Vector3 iniDirection, bool en, float ran = 0, GameObject obj = null)
+    {
+        shipSpeed = iniSpeed;
+        shipToward = iniDirection;
+        gameObject.GetComponent<is_en_tag>().is_enemy = en;
+        launchAngle = 0;
+    }
 
     public void Initial(float sSpeed, Vector3 sToward, bool en)
     {
         shipSpeed = sSpeed;
         shipToward = sToward;
         gameObject.GetComponent<is_en_tag>().is_enemy = en;
-        lunchAngle = 0;
+        launchAngle = 0;
     }
 
     void Fire()
@@ -72,7 +76,7 @@ public class FrozenOrb : MonoBehaviour
         if( time >= intervalTime )
         {
             Fire();
-            lunchAngle += deltaAngle;
+            launchAngle += deltaAngle;
             time = 0;
         }
         else

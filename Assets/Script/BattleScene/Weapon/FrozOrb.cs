@@ -14,7 +14,7 @@ public class FrozOrb : Weapon {
         foreach (GameObject muzz in muzzle)
         {
             GameObject bull = Instantiate(bullet, muzz.transform.position, muzz.transform.rotation);
-            bull.GetComponent<FrozenOrb>().Initial(obj.GetComponent<Ship>().Speed, obj.transform.up, GetComponentInParent<is_en_tag>().is_enemy);
+            bull.GetComponent<Bullet>().Initial(obj.GetComponent<Ship>().Speed, obj.transform.up, GetComponentInParent<is_en_tag>().is_enemy);
         }
         cd.StartColdDown();
     }

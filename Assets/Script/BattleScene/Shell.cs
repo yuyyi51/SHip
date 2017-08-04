@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shell : MonoBehaviour
+public class Shell : Bullet
 {
-
-    private float timetodestroy;
-    public float speed = 15;
-    public float damage = 5;
     public float minRange = 3;
     public float maxRange = 15;
     public float range;
@@ -18,6 +14,14 @@ public class Shell : MonoBehaviour
     public float shipSpeed;
 
     public GameObject explode;
+
+    new public void Initial(float iniSpeed, Vector3 iniDirection, bool en, float ran = 7, GameObject obj = null)
+    {
+        range = ran;
+        shipSpeed = iniSpeed;
+        shipToward = iniDirection;
+        gameObject.GetComponent<is_en_tag>().is_enemy = en;
+    }
 
     public void Initial(float sSpeed, Vector3 sToward, bool en, float ran = 7)
     {

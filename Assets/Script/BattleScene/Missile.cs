@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missile : MonoBehaviour
+public class Missile : Bullet
 {
     public static int number = 0;
-    public float timetodestroy = 5;
-    public float speed = 5;
     public float minSpeed = 20;
     public float maxSpeed = 50;
-    public float damage = 5;
     public float accel = 15;
     public float astern = 5;
     public float turnningSpeed = 180;
@@ -21,6 +18,12 @@ public class Missile : MonoBehaviour
     public GameObject explode;
 
     public float showangle;
+
+    new public void Initial(float iniSpeed, Vector3 iniDirection, bool en, float ran = 0, GameObject obj = null)
+    {
+        target = obj;
+        gameObject.GetComponent<is_en_tag>().is_enemy = en;
+    }
 
     public void Initial(GameObject tar, bool en)
     {
