@@ -19,7 +19,7 @@ public class Missile : Bullet
 
     public float showangle;
 
-    new public void Initial(float iniSpeed, Vector3 iniDirection, bool en, float ran = 0, GameObject obj = null)
+    override public void Initial(float iniSpeed, Vector3 iniDirection, bool en, float ran = 0, GameObject obj = null)
     {
         target = obj;
         gameObject.GetComponent<is_en_tag>().is_enemy = en;

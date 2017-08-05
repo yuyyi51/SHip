@@ -15,7 +15,7 @@ public class Shell : Bullet
 
     public GameObject explode;
 
-    new public void Initial(float iniSpeed, Vector3 iniDirection, bool en, float ran = 7, GameObject obj = null)
+    override public void Initial(float iniSpeed, Vector3 iniDirection, bool en, float ran = 7, GameObject obj = null)
     {
         range = ran;
         shipSpeed = iniSpeed;

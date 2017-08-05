@@ -19,7 +19,7 @@ public class FrozenOrb : Bullet
     private float time;
     public float bulletNumber;
 
-    new public void Initial(float iniSpeed, Vector3 iniDirection, bool en, float ran = 0, GameObject obj = null)
+    override public void Initial(float iniSpeed, Vector3 iniDirection, bool en, float ran = 0, GameObject obj = null)
     {
         shipSpeed = iniSpeed;
         shipToward = iniDirection;
@@ -39,7 +39,7 @@ public class FrozenOrb : Bullet
     {
         for (int i = 0; i != bulletNumber; ++i)
         {
-            float angle = 360.0f / bulletNumber * i + lunchAngle + gameObject.transform.rotation.eulerAngles.z;
+            float angle = 360.0f / bulletNumber * i + launchAngle + gameObject.transform.rotation.eulerAngles.z;
             angle %= 360;
             GameObject bull = Instantiate(subBullet, gameObject.transform.position, Quaternion.Euler(0, 0, angle));
             bull.GetComponent<Shell>().Initial(speed, transform.TransformVector(direction), gameObject.GetComponent<is_en_tag>().is_enemy);
