@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FrozenOrb : Bullet
 {
-    private Vector3 direction;
 
     public Vector3 shipToward;
     public float shipSpeed;

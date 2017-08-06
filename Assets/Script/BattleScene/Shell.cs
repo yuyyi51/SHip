@@ -7,7 +7,6 @@ public class Shell : Bullet
     public float minRange = 3;
     public float maxRange = 15;
     public float range;
-    private Vector3 direction;
     public float maxDispersion;
 
     public Vector3 shipToward;

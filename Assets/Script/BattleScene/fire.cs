@@ -77,7 +77,7 @@ public class fire : MonoBehaviour
             mouse.z = 0;
             GameObject target = BattleController.instance.FindClosestEnemy(mouse, radii, GetComponentInParent<is_en_tag>().is_enemy);
             Debug.Log(target);
-            m.GetComponent<Missile>().target = target;
+            m.GetComponent<Bullet>().Initial(0, new Vector3(0, 0, 0), GetComponentInParent<is_en_tag>().is_enemy, 0, target);
             cd[1].StartColdDown();
         }
 

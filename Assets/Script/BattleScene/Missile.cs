@@ -13,7 +13,6 @@ public class Missile : Bullet
     public float minDegree = 30;
     public float beforeAccel = 1;
     private float time;
-    public GameObject target;
 
     public GameObject explode;
 
